@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Box model</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <section class="developer">
+      <div class="half column">
+        <div class="outer-box">
+          <div class="box">
+            <div class="inner-box">
+              This is the main content area of the element. Padding creates space between the content and the borders, and margin creates space between other elements
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="half column">
+        <pre class="editor"><code>p {
+  padding: <input class="field padding" type="number" value="10"></input> px;
+  margin: <input class="field margin" type="number" value="10"></input> px;
+  border: <input class="field border" type="number" value="1"></input> px solid #aaa;
+}
+        </code></pre>
+      </div>
+    </section>
+    <section class="key">
+      <div class="pair padding">
+        <span class="color"></span>
+        <span>Padding</span>
+      </div>
+      <div class="pair border">
+        <span class="color"></span>
+        <span>Border</span>
+      </div>
+      <div class="pair margin">
+        <span class="color"></span>
+        <span>Margin</span>
+      </div>
+    </section>
+    <!-- <hr> -->
+    <!-- <section class="preview">
+      <p>This is the main content area of the element. Padding creates space between the content and the borders, and margin creates space between other elements</p>
+      <p>This is the main content area of the element. Padding creates space between the content and the borders, and margin creates space between other elements</p>
+      <p>This is the main content area of the element. Padding creates space between the content and the borders, and margin creates space between other elements</p>
+    </section> -->
+  </div>
+  <script type="text/javascript" src="script.js"></script>
+</body>
+</html>

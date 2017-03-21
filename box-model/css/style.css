@@ -1,0 +1,100 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "avenir", helvetica, arial, sans-serif;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #ddd;
+}
+
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+section.developer {
+  overflow: auto;
+}
+
+.half.column {
+  width: 50%;
+  float: left;
+}
+
+.editor {
+  padding-left: 20px;
+  line-height: 1.8em;
+  font-size: 1.1em;
+  margin: 0;
+}
+
+.editor .field {
+  width: 40px;
+  padding: 3px;
+  display: inline-block;
+  border: 1px solid #ccc;
+}
+
+/* Box model code */
+
+.outer-box {
+  background: #da5;
+  display: block;
+  position: relative;
+  overflow: visible;
+}
+
+.box {
+  background: #9da;
+  position: relative;
+  overflow: visible;
+  padding: 30px;
+  margin: 10px;
+  display: inline-block;
+  border: 4px solid #735;
+}
+
+.inner-box {
+  margin: 0px;
+  background: #fff;
+  color: #555;
+  width: 100%;
+  text-align: left;
+}
+
+/* Color key */
+
+.key {
+  margin-top: 15px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.key .pair {
+  display: inline-block;
+}
+
+.key span {
+  padding: 4px 10px;
+}
+
+.key .color {
+  padding: 0px 10px;
+}
+
+.margin .color {
+  background: #da5;
+}
+
+.border .color {
+  background: #735;
+}
+
+.padding .color {
+  background: #9da;
+}
