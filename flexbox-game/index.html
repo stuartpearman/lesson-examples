@@ -1,0 +1,164 @@
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2017 by anonymous (http://jsbin.com/noficenule/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<style id="jsbin-css">
+body {
+  margin: 0;
+  font-family: 'avenir', helvetica, arial, sans-serif;
+}
+nav {
+  color: #ddd;
+  background: #27323A;
+  display: block;
+  overflow: hidden;
+  padding: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.3)
+}
+.nav-context {
+  padding: 5px;
+}
+nav button {
+  background: transparent;
+  border: 0;
+  padding: 10px;
+  border: 1px solid #999;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 0.9em;
+  outline: none;
+  cursor: pointer;
+  margin: 5px;
+}
+.code-editor {
+  background: #27323A;
+  color: #fff;
+  padding: 8px;
+  overflow-y: scroll;
+  margin-right: -15px;
+  max-height: 180px;
+  width: 100%;
+}
+
+.code-outer {
+  overflow: hidden;
+  width: 100%;
+}
+
+.code-editor pre {
+  font-family: Inconsolata, Monaco, Consolas, Courier;
+  font-size: 0.8em;
+/*   line-height: 1em; */
+}
+
+.editable {
+  margin: 0.8em 20px 0.4em 40px;
+  border: 1px solid rgba(0,0,0,0.5);
+  width: 100%;
+  max-width: 300px;
+  padding: 5px 10px;
+  outline: none;
+  line-height: 1.4em;
+  display: inline-block;
+}
+
+.parent {
+  background: #eee;
+  border: 1px solid #999;
+  margin: 10px;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.child {
+  width: 120px;
+  min-width: 100px;
+  height: 120px;
+  color: #fff;
+  background: #5ad;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  border-radius: 4px;
+}
+</style>
+<nav class="examples">
+  <span class="nav-context">See an example</span>
+</nav>
+<div class="code-outer">
+<div class="code-editor">
+<pre>
+  .parent {
+    <div class="editable parent-css" contentEditable></div>
+  }
+</pre>
+<pre>
+  .child {
+    <div class="editable child-css" contentEditable></div>
+  }
+</pre>
+</div>
+</div>
+
+<div class="parent">
+  <div class="child">.child</div>
+  <div class="child">.child</div>
+  <div class="child">.child</div>
+</div>
+<script id="jsbin-javascript">
+presets = [
+  {
+    buttonText: 'Space Between',
+    parentCode: 'display: flex;\njustify-content: space-between;',
+    childCode: ''
+  },
+  {
+    buttonText: 'Space Around',
+    parentCode: 'display: flex;\njustify-content: space-around;',
+    childCode: ''
+  },
+  {
+    buttonText: 'Columns',
+    parentCode: 'display: flex;',
+    childCode: 'flex-grow: 1;'
+  },
+  {
+    buttonText: 'Smart Wrapping',
+    parentCode: 'display: flex;\nflex-wrap: wrap;',
+    childCode: 'flex-grow: 1;\nmin-width: 300px;'
+  }
+]
+
+var parentCSS = document.querySelector('.parent-css')
+var childCSS = document.querySelector('.child-css')
+var parentDiv = document.querySelector('.parent')
+var children = document.querySelectorAll('.child')
+var nav = document.querySelector('.examples')
+
+function update () {
+  children.forEach(function(child){
+    child.style = childCSS.textContent
+  })
+  parentDiv.style = parentCSS.textContent
+}
+
+presets.forEach(function (preset) {
+  var button = document.createElement('button')
+  button.textContent = preset.buttonText
+  button.addEventListener('click', function () {
+    parentCSS.textContent = preset.parentCode
+    childCSS.textContent = preset.childCode
+    update()
+  })
+  nav.appendChild(button)
+})
+
+parentCSS.addEventListener('input', update)
+childCSS.addEventListener('input', update)
+</script>
